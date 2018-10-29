@@ -33,7 +33,7 @@ const prod = {
 		REGION: "us-west-2",
 		USER_POOL_ID: "us-west-2_qgHXsKGK2",
 		APP_CLIENT_ID: "58ukc75rmbbbrsq9uhtugnc0m2",
-		IDENTITY_POOL_ID: "us-west-2:0fbcc3b3-93ca-492a-bb4f-f54f7545d5e3	"
+		IDENTITY_POOL_ID: "us-west-2:0fbcc3b3-93ca-492a-bb4f-f54f7545d5e3"
 	},
 	social: {
 		FB: "542629866184897"
