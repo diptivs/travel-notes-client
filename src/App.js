@@ -12,6 +12,7 @@ class App extends Component {
     super(props);
     this.state = {
       isAuthenticated: false,
+      isFedAuth: false,
       isAuthenticating: true
     };
   }
@@ -55,6 +56,10 @@ class App extends Component {
     this.setState({ isAuthenticated: authenticated });
   }
 
+  userHasFedAuthenticated = authenticated => {
+    this.setState({ isFedAuth: authenticated });
+  }
+
   handleLogout = async event => {
     await Auth.signOut();
     this.userHasAuthenticated(false);
@@ -64,7 +69,9 @@ class App extends Component {
   render() {
     const childProps = {
       isAuthenticated: this.state.isAuthenticated,
-      userHasAuthenticated: this.userHasAuthenticated
+      isFedAuth: this.state.isFedAuth,
+      userHasAuthenticated: this.userHasAuthenticated,
+      userHasFedAuthenticated: this.userHasFedAuthenticated
     };
 
     

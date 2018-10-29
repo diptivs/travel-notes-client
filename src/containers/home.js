@@ -37,12 +37,10 @@ export default class Home extends Component {
 				
 		const info = await Auth.currentUserInfo();
 
-		if(info)
+		if(!this.props.isFedAuth)
 		{
 			console.log("Dipti1: ");
 			console.log(info);
-
-
 
 			var strEmail = info.attributes['email'];
 			if(strEmail.trim() === "admin@example.com")

@@ -41,6 +41,7 @@ export default class Login extends Component {
 
 	handleFbLogin = () => {
   		this.props.userHasAuthenticated(true);
+  		this.props.userHasFedAuthenticated(true);
 	};
 
 	render() {
