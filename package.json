@@ -15,7 +15,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "sh -ac '. .env.${REACT_APP_ENV}; react-scripts build'",
+    "build": "sh -ac 'export REACT_APP_ENV=production; react-scripts build'",
     "test": "react-scripts test",
     "predeploy": "npm run build",
     "deploy": "aws s3 sync build/ s3://usernotes-client-dev --delete",
