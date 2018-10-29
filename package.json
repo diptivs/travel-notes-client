@@ -21,7 +21,7 @@
     "deploy": "aws s3 sync build/ s3://usernotes-client-dev --delete",
 
 
-    "predeploy:prod": "REACT_APP_ENV=production npm run build",
+    "predeploy:prod": "REACT_APP_ENV=prod npm run build",
     "deploy:prod": "aws s3 sync build/ s3://usernotes-client --delete",
     "postdeploy:prod": "aws cloudfront create-invalidation --distribution-id EK1BICMPGRFUQ --paths /* && aws cloudfront create-invalidation --distribution-id E3USYWNJI6PSLQ --paths /*",
     "eject": "react-scripts eject"
