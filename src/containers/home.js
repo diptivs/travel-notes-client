@@ -37,23 +37,25 @@ export default class Home extends Component {
 				
 		const info = await Auth.currentUserInfo();
 
-		console.log("Dipti1: ");
-		console.log(info);
+		if(info)
+		{
+			console.log("Dipti1: ");
+			console.log(info);
 
 
 
-		var strEmail = info.attributes['email'];
-		if(strEmail.trim() === "admin@example.com")
-		this.setState({email : true});
+			var strEmail = info.attributes['email'];
+			if(strEmail.trim() === "admin@example.com")
+			this.setState({email : true});
 
-		console.log(strEmail + this.state.email);
+			console.log(strEmail + this.state.email);
 
-    	var strFirstName = info.attributes['given_name'];
-    	this.setState({firstname : strFirstName });
+	    	var strFirstName = info.attributes['given_name'];
+	    	this.setState({firstname : strFirstName });
 
-    	var strLastName = info.attributes['family_name'];
-    	this.setState({lastname : strLastName });
-
+	    	var strLastName = info.attributes['family_name'];
+	    	this.setState({lastname : strLastName });
+	    }
 		this.setState({ isLoading: false });
 	}
 
@@ -210,7 +212,7 @@ export default class Home extends Component {
 	renderNotes() {
 		return (
 			<div className="notes">
-				<PageHeader>Welcome {this.state.firstname} {this.state.lastname}</PageHeader>
+				<PageHeader>Welcome this.state.firstname this.state.lastname </PageHeader>
 
 
 				<table>
