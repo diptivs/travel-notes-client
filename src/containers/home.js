@@ -17,6 +17,7 @@ export default class Home extends Component {
 		super(props);
 		this.state = {
 			isLoading: true,
+			email: false,
 			firstname: "",
 			lastname: "",
 			notes: []
@@ -35,6 +36,17 @@ export default class Home extends Component {
 		}
 				
 		const info = await Auth.currentUserInfo();
+
+		console.log("Dipti1: ");
+		console.log(info);
+
+
+
+		var strEmail = info.attributes['email'];
+		if(strEmail.trim() === "admin@example.com")
+		this.setState({email : true});
+
+		console.log(strEmail + this.state.email);
 
     	var strFirstName = info.attributes['given_name'];
     	this.setState({firstname : strFirstName });
@@ -103,9 +115,29 @@ export default class Home extends Component {
 		);
 	}
 
+	renderAdminPage(){
+
+		return (
+			
+				<div>
+					<LinkContainer
+						key="admin"
+						to="/admin"
+					>
+						<ListGroupItem>
+							<h4>
+							<b>{"\uFF0B"}</b> Go to admin display
+							</h4>
+						</ListGroupItem>
+					</LinkContainer>
+				</div>
+			)
+	}
+
 
 	renderNotesTable(){
 		const convertedObject = Object.values(this.state.notes);
+		console.log(convertedObject);
 		return (
 			
 				<div>
@@ -180,12 +212,16 @@ export default class Home extends Component {
 			<div className="notes">
 				<PageHeader>Welcome {this.state.firstname} {this.state.lastname}</PageHeader>
 
+
 				<table>
+					<tr>
+						{this.state.email ? this.renderAdminPage() : ""}
+					</tr>
 					<tr>
 						<ListGroup>
 							{!this.state.isLoading &&   this.renderNotesTable(this.state.notes)}
 						</ListGroup>
-				</tr>
+					</tr>
 				</table>
 			</div>
 

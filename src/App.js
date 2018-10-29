@@ -67,7 +67,7 @@ class App extends Component {
       userHasAuthenticated: this.userHasAuthenticated
     };
 
-    console.log('Dipti log2:' + process.env.REACT_APP_ENV);
+    
     return (
       !this.state.isAuthenticating &&
       <div className="App container">
