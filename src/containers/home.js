@@ -210,7 +210,7 @@ export default class Home extends Component {
 	renderNotes() {
 		return (
 			<div className="notes">
-				<PageHeader>Welcome {this.state.firstname} {this.state.lastname} </PageHeader>
+				<PageHeader>Hey, Welcome {this.state.firstname} {this.state.lastname} </PageHeader>
 
 
 				<table>
