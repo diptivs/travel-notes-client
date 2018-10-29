@@ -17,9 +17,13 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "predeploy": "npm run build",
-    "deploy": "aws s3 sync build/ s3://usernotes-client --delete",
-    "postdeploy": "aws cloudfront create-invalidation --distribution-id EK1BICMPGRFUQ --paths /* && aws cloudfront create-invalidation --distribution-id E3USYWNJI6PSLQ --paths /*",
+    "predeploy": "REACT_APP_STAGE=dev npm run build",
+    "deploy": "aws s3 sync build/ s3://usernotes-client-dev --delete",
+
+
+    "predeploy:prod": "REACT_APP_STAGE=prod npm run build",
+    "deploy:prod": "aws s3 sync build/ s3://usernotes-client --delete",
+    "postdeploy:prod": "aws cloudfront create-invalidation --distribution-id EK1BICMPGRFUQ --paths /* && aws cloudfront create-invalidation --distribution-id E3USYWNJI6PSLQ --paths /*",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
