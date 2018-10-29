@@ -40,11 +40,10 @@ const prod = {
 	}
 };
 
-console.log('Dipti log1:' + process.env.REACT_APP_ENV);
 
-const config = process.env.REACT_APP_ENV === 'production'
-	? prod
-	: dev;	
+const config = process.env.REACT_APP_ENV === 'dev'
+	? dev
+	: prod;	
 
 export default {
 	MAX_ATTACHMENT_SIZE: 5000000,
